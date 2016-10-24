@@ -1,0 +1,48 @@
+---
+title: "Diamonds"
+author: "Itnava"
+date: "October 23, 2016"
+output: 
+  slidy_presentation:
+    font_adjustment: -1
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Exploring the diamonds dataset in ggplot2
+
+
+```{r loadData, include=FALSE}
+library(ggplot2)
+data(diamonds)
+```
+```{r showData, include = TRUE}
+dim(diamonds)
+summary(diamonds)
+```
+
+---
+
+We can make several static plots based to better understand our dataset:
+
+```{r plot1, include=TRUE, fig.height= 5}
+ggplot(diamonds, aes(x= carat, y = price, color = cut)) + geom_point()
+```
+
+---
+
+```{r plot2, include = TRUE, fig.height = 5}
+ggplot(diamonds, aes(x=carat, y = price, color = color)) +geom_point()
+```
+
+---
+
+
+
+
+<h5>We would need 90 plots to show all possible combinations of the features in the diamonds dataset. 
+
+
+<h5>We can do this interactively in one shiny app. An example can be found at our <a href https://itnava.shinyapps.io/diamonds/> Shiny App </a> at https://itnava.shinyapps.io/diamonds/
